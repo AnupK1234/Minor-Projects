@@ -1,0 +1,64 @@
+/* * {
+    border: 1px solid red;
+} */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+}
+
+.Calculator {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+/* Selecting all children of class .Calculator which are button */
+.Calculator > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.Calculator > button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    border: 7px solid rgb(0, 0, 0);
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .up-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .down-operand {
+    color: white;
+    font-size: 2.5rem;
+}
