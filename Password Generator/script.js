@@ -35,6 +35,7 @@ let generatePassword = (password  = "") => {
         return generatePassword(password);
     }
     passbox.innerText = truncateString(password, charInput.value);
+    navigator.clipboard.writeText(passbox.innerText); // This will copy you code to clipboard
 };
 
 // Adding eventListener to Button
