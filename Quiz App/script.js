@@ -60,6 +60,25 @@ const submitQuiz = () => {
     {
         wrong++;
     }
+    
+
+    let popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.innerHTML = `
+        <h2>Your answer is ${ans}.</h2>
+        <h3>Correct answer is ${data.answer}</h3>
+    `;
+    if(ans === data.answer){
+        popup.style.backgroundColor = "#00FF00";
+    }else{
+        popup.style.backgroundColor = "#F40009";
+    }
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+        popup.remove();
+    }, 1000);
+
     index++;
     loadQuestion();
     return; 
@@ -86,14 +105,25 @@ const reset = () => {
 }
 
 const endQuiz = () => {
-    document.getElementById("box").innerHTML =
-    `
+    if (total === right) {
+      document.getElementById("box").innerHTML = `
         <div style="text-align:center">
-            <h2>Quiz Over!!!</h2>
-            <h3>Score : ${right}/${total}</h3>
+            <h1>Quiz Over!!!</h1>
+            <h2 style = "margin-top:10px;">Score : ${right}/${total}</h2>
+            <h1 style = "margin-top:40px;">Great Work!🎉🎉🎉</h1>
         </div>
         
-    `
+    `;
+    }
+    else{
+        document.getElementById("box").innerHTML = `
+        <div style="text-align:center">
+            <h1>Quiz Over!!!</h1>
+            <h2 style = "margin-top:10px;">Score : ${right}/${total}</h2>
+            <h1 style = "margin-top:40px;" onclick="reset()">Try again</h1>
+        </div>
+    `;
+    }
 }
 
 // main call
