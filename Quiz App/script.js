@@ -49,8 +49,15 @@ let total = questions.length;
 let right = 0;
 let wrong = 0;
 
+const timeText = document.querySelector(".timer .time_left_txt");
+const timeCount = document.querySelector(".timer .timer_sec");
+
+
 let data;
 const loadQuestion = () => {
+    timeCount.textContent = 15;
+    timeText.textContent = "Time Left";
+    startTimer(15);
     if(index == total)
     {
         return endQuiz();
@@ -144,3 +151,20 @@ const endQuiz = () => {
 
 // main call
 loadQuestion();
+
+
+function startTimer(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timeCount.textContent = time; //changing the value of timeCount with time value
+        time--; //decrement the time value
+        if(time < 9){ //if timer is less than 9
+            let addZero = timeCount.textContent; 
+            timeCount.textContent = "0" + addZero; //add a 0 before time value
+        }
+        if(time < 0){ //if timer is less than 0
+            clearInterval(counter); //clear counter
+            timeText.textContent = "Time Off"; //change the time text to time off
+        }
+    }
+}
