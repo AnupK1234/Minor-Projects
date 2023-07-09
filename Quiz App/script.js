@@ -23,6 +23,22 @@ const questions =
         "c": "text:align-center;",
         "d": "font:align-center;",
         "answer": "a"
+    },
+    {
+        "q": "What is the name of the protocol that is used to transfer data between a web server and a web browser?",
+        "a": "HTTP",
+        "b": "HTTPS",
+        "c": "FTP",
+        "d": "SMTP",
+        "answer": "a"
+    },
+    {
+        "q": "What is the name of the programming language that is used to create dynamic websites?",
+        "a": "HTML",
+        "b": "CSS",
+        "c": "JavaScript",
+        "d": "Python",
+        "answer": "c"
     }
 ];
 
